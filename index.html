@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff8f82" />
+    <meta name="description" content="날짜별 할 일을 가볍게 기록하는 2026년 복숭아 달력" />
+    <title>복숭아 달력 · 2026</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='54'%3E%F0%9F%8D%91%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="peach-sky" aria-hidden="true">
+      <span>🍑</span><span>🍑</span><span>🍑</span><span>🍑</span><span>🍑</span><span>🍑</span>
+    </div>
+
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">🍑</div>
+          <div>
+            <p class="eyebrow">MY LITTLE PLAN</p>
+            <h1>2026 복숭아 달력</h1>
+          </div>
+        </div>
+        <div class="year-progress" aria-label="2026년 진행률">
+          <div class="progress-copy">
+            <span>올해의 여정</span>
+            <strong id="yearProgressText">0%</strong>
+          </div>
+          <div class="progress-track"><span id="yearProgressBar"></span></div>
+        </div>
+      </header>
+
+      <section class="workspace" aria-label="달력과 할 일 목록">
+        <div class="calendar-card">
+          <div class="calendar-header">
+            <div>
+              <p class="calendar-kicker">2026 CALENDAR</p>
+              <h2 id="monthTitle">1월</h2>
+            </div>
+            <div class="month-controls">
+              <button class="icon-button" id="prevMonth" type="button" aria-label="이전 달">‹</button>
+              <button class="today-button" id="todayButton" type="button">오늘</button>
+              <button class="icon-button" id="nextMonth" type="button" aria-label="다음 달">›</button>
+            </div>
+          </div>
+
+          <div class="weekdays" aria-hidden="true">
+            <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+          </div>
+          <div class="calendar-grid" id="calendarGrid" role="grid" aria-labelledby="monthTitle"></div>
+
+          <div class="calendar-legend">
+            <span><i class="legend-dot coral"></i>할 일 있음</span>
+            <span><i class="legend-dot mint"></i>모두 완료</span>
+          </div>
+        </div>
+
+        <aside class="todo-card" aria-labelledby="selectedDateTitle">
+          <div class="todo-heading">
+            <div>
+              <p id="selectedDateWeekday" class="selected-weekday">목요일</p>
+              <h2 id="selectedDateTitle">1월 1일</h2>
+            </div>
+            <div class="date-badge" id="dateBadge" aria-hidden="true">01</div>
+          </div>
+
+          <div class="task-summary">
+            <span id="taskSummaryText">오늘의 할 일</span>
+            <strong id="taskCount">0 / 0</strong>
+          </div>
+
+          <form class="task-form" id="taskForm">
+            <label class="sr-only" for="taskInput">새 할 일</label>
+            <input id="taskInput" maxlength="80" autocomplete="off" placeholder="할 일을 적어보세요" />
+            <button type="submit" aria-label="할 일 추가">+</button>
+          </form>
+
+          <div class="filter-row" role="group" aria-label="할 일 필터">
+            <button class="filter-button active" type="button" data-filter="all">전체</button>
+            <button class="filter-button" type="button" data-filter="active">할 일</button>
+            <button class="filter-button" type="button" data-filter="done">완료</button>
+          </div>
+
+          <div class="task-list-wrap">
+            <ul class="task-list" id="taskList" aria-live="polite"></ul>
+            <div class="empty-state" id="emptyState">
+              <span aria-hidden="true">🍑</span>
+              <p>아직 할 일이 없어요</p>
+              <small>가볍게 하나부터 시작해 볼까요?</small>
+            </div>
+          </div>
+
+          <p class="save-note"><span aria-hidden="true">●</span> 이 브라우저에 자동으로 저장돼요</p>
+        </aside>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
